@@ -1,0 +1,293 @@
+---
+title: "Numpy_Practice"
+author: "Anton"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(usethis)
+library(gitcreds)
+# use_git_remote(name = "ML-Healthcare",
+#                url = "https://github.com/antonsov8/ML-Healthcare.git",
+#                overwrite = F)
+
+# use_git_remote(name = "Project-Sukanya",
+#                url = "https://github.com/antonsov8/Project-Sukanya.git",
+#                overwrite = F)
+
+use_git_remote(name = "SIB2023",
+               url = "https://github.com/antonsov8/SIB2023.git",
+               overwrite = F)
+
+
+# git_remotes()
+gitcreds_set()
+
+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
+# https://github.com/antonsov8/ML-Healthcare.git
+
+# GH pwd GPG
+```
+
+
+# Numpy Practice
+
+
+## Chapter 2 Numpy Basics
+
+```{python Script1}
+import numpy as np
+my_array = np.array([10,12,14,16,20])
+print(my_array)
+print(my_array.dtype)
+print(my_array.dtype.itemsize)
+```
+Script 2
+```{python}
+my_array = np.array(["Red", "Green", "Orange"])
+print(my_array)
+print(my_array.dtype)
+print(my_array.dtype.itemsize)
+```
+
+U for unicode string with 6 for item with most number of characters
+
+Script 3
+
+```{python}
+my_array = np.array(["1990-04-14", "1990-06-15", "1990-08-20", ])
+
+print(my_array)
+print(my_array.dtype)
+print(my_array.dtype.itemsize)
+
+
+```
+Dates are stored as string in numpy and that is represented here as unicode character
+
+Script 4
+
+Converting the date stored as string to date datatype by passing "M" character to astype function of the array object
+```{python}
+my_array3 = my_array.astype("M")
+
+
+print(my_array3.dtype)
+print(my_array3.dtype.itemsize)
+
+```
+Script 5
+
+```{python}
+my_array = np.array(["1990-04-14","1990-05-16","1990-08-20"], dtype = "M")
+
+print(my_array)
+print(my_array.dtype)
+
+```
+
+
+### Creating NumPy Arrays   
+
+Script 6: Use array method
+```{python}
+nums_list = [10, 12, 14, 16 ,20]
+nums_array = np.array(nums_list)
+print(nums_array)
+type(nums_array)
+```
+
+Script 7 
+Multi D array as list of lists
+
+```{python}
+row1 = [2, 3, 4]
+row2 = [3, 5, 7]
+row3 = [7, 5 ,3]
+
+nums_2d = np.array([row1, row2, row3])
+nums_2d.shape
+print(nums_2d)
+```
+
+Script 8 
+```{python}
+nums_arr = np.arange(8,10)
+print(nums_arr)
+```
+
+Script 9 
+
+```{python}
+nums_arr = np.arange(8, 15, 2)
+print(nums_arr)
+```
+
+np.ones creates all ones
+np.zeros creats all zeros
+np.eye creates an identity matrix
+
+Script 15 : Using Random method
+
+```{python}
+unif_random = np.random.rand(4,5)
+print(unif_random)
+```
+
+randn gives normal random numbers
+randint gives integers
+
+Script 19: Numpy dimensions
+```{python}
+my_array = np.arange(2,8,2)
+print(my_array)
+print(my_array.ndim)
+print(my_array.shape)
+
+```
+
+Script 20
+```{python}
+for i in my_array:
+  print(i)
+```
+
+Script 21 
+
+
+```{python}
+integer_random = np.random.randint(1,11, size = (4,5))
+print(integer_random)
+```
+
+```{python}
+print(integer_random.ndim)
+print(integer_random.shape)
+```
+
+
+```{python}
+for i in integer_random:
+  print(i)
+```
+
+2023-08-21 
+
+Script 25
+
+```{python}
+import numpy as np
+my_array = np.array(["Red", "Green", "Orange"])
+print(my_array)
+
+extended = np.append(my_array, "Yellow")
+print(extended)
+```
+
+Script 26: appending an array to an array
+```{python}
+my_array= np.array(["Red", "Blue", "Green"])
+print(my_array)
+
+extended = np.append(my_array, ["Yello", "Pink"])
+print(extended)
+```
+
+Script 28 
+```{python}
+zeros_array = np.zeros((3,3))
+print(zeros_array)
+extended = np.append(zeros_array,[[1,2,3]], axis = 0)
+print(extended)
+extended = np.append(zeros_array,[[1],[2],[3]], axis = 1)
+print(extended)
+```
+
+Script 30 : Removing items from numpy
+
+```{python}
+my_array = np.array(["Red", "Blue", "Green"])
+update_array = np.delete(my_array, 1)
+print(update_array)
+```
+```{python}
+my_array = np.array(["Red", "Blue", "Green"])
+update_array = np.delete(my_array, [1, 2])
+print(update_array)
+
+```
+Script 33
+```{python}
+integer_random = np.random.randint(1,11, size = (4,5))
+print(integer_random)
+updated_array = np.delete(integer_random, 1, axis = 1)
+print(updated_array)
+```
+
+Random Numpy array of 5 rows and 4 columns
+```{python}
+
+np.random.rand(5,4)
+```
+
+
+
+## Chapter 3 Numpy array manipulation
+
+Script 1: Sorting Numeric Arrays
+
+```{python}
+my_array = np.random.randint(1,20,10)
+print(my_array)
+sort_array = np.sort(my_array)
+print(sort_array)
+```
+
+Script 5
+
+```{python}
+my_array = np.random.randint(1,20,10)
+print(my_array)
+
+
+sort_array =np.sort(my_array)
+reverse_sort = np.flipud(sort_array)
+
+print(sort_array)
+print(reverse_sort)
+
+```
+
+
+Script 6:
+```{python}
+one_d_array = np.random.randint(1,20,10)
+print(one_d_array)
+
+two_d_array = one_d_array.reshape(2,5)
+print(two_d_array)
+
+one_d_array_back = two_d_array.reshape(-1)
+print(one_d_array_back)
+```
+
+Script 26 Saving numpy
+
+```{python}
+array1 = np.array([x**2 for x in range(10)])
+np.save("array1_sqrs",array1)
+
+```
+
+Script 28: Loading numpy
+```{python}
+loaded_array = np.load("array1_sqrs.npy")
+print(loaded_array)
+```
+
+
