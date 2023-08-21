@@ -9,30 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-library(usethis)
-library(gitcreds)
-# use_git_remote(name = "ML-Healthcare",
-#                url = "https://github.com/antonsov8/ML-Healthcare.git",
-#                overwrite = F)
-
-# use_git_remote(name = "Project-Sukanya",
-#                url = "https://github.com/antonsov8/Project-Sukanya.git",
-#                overwrite = F)
-
-use_git_remote(name = "SIB2023",
-               url = "https://github.com/antonsov8/SIB2023.git",
-               overwrite = F)
-
-
-# git_remotes()
-gitcreds_set()
-
-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
-# https://github.com/antonsov8/ML-Healthcare.git
-
-# GH pwd GPG
-```
 
 
 # Numpy Practice
